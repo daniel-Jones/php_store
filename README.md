@@ -1,0 +1,3 @@
+not finished, needs PHPMailer and securimage installed...
+
+[live example](https://manga.gnupluslinux.com/)
