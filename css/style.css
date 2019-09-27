@@ -1,0 +1,390 @@
+/*
+ *
+ * Copyright (c) 2019 - Burrandies Aboriginal Corporation - https://codepen.io/team/sparkbox/pen/MKxogY
+ *
+ * Permission is hereby granted, free of charge, to any person 
+ * obtaining a copy of this software and associated documentation 
+ * files (the "Software"), to deal in the Software without restriction,
+ *  including without limitation the rights to use, copy, modify, 
+ *  merge, publish, distribute, sublicense, and/or sell copies of 
+ *  the Software, and to permit persons to whom the Software is 
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall 
+ *  be included in all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+ *  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+ *  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+ *  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+ *  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+ *  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+ *  DEALINGS IN THE SOFTWARE.
+ *
+ */
+
+/* =Structure
+ * ---------------------------*/
+body {
+	font-family: Arial, sans-serif;
+	padding: 40px;
+	font-size: 16px;
+	background: #ffe6ff url('../images/tile.png') repeat center center fixed;
+	line-height: 26px;
+}
+.site {
+	background-color: lightpink;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden;
+}
+
+/* =Elements
+ * ---------------------------*/
+img {
+	max-width: 100%;
+	height: auto;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 26px;
+}
+p {
+	margin-bottom: 26px;
+}
+p:last-child {
+	margin-bottom: 0;
+}
+
+/* =Header
+ * ---------------------------*/
+.site-header {
+	padding: 40px;
+	text-align: center;
+}
+.site-title {
+	margin: 0;
+}
+
+@media (min-width: 800px) {
+	.site-title {
+		float: left;
+	}
+}
+
+/* =Navigation
+ * ---------------------------*/
+.site-navigation ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.site-navigation li {
+	display: inline-block;
+}
+.site-navigation a {
+	display: block;
+	text-decoration: none;
+	font-weight: 700;
+	color: #000;
+	margin: 0 0 0 20px;
+}
+.site-navigation a:hover {
+	color: #4cacbe;
+}
+
+@media (min-width: 800px) {
+	.site-navigation {
+		float: right;
+	}
+	.site-navigation a {
+		margin: 0 0 0 20px;
+	}
+}
+
+/* =Content
+ * ---------------------------*/
+.content-wrapper {
+	padding: 40px;
+}
+.site-content {
+	padding-bottom: 40px;
+	border-bottom: 1px dotted #999;
+}
+.sidebar {
+	padding-top: 40px;
+	font-size: 13px;
+	line-height: 21px;
+	text-align: center;
+	display: none;
+}
+.widget {
+	padding-bottom: 20px;
+}
+
+@media (min-width: 800px) {
+	.site-content {
+		width: 70%;
+		float: left;
+		border: none;
+	}
+	.sidebar {
+		display: inline;
+		width: 30%;
+		float: left;
+		padding-top: 0;
+		text-align: left;
+	}
+	.widget {
+		padding-left: 20px;
+	}
+}
+
+/* =Footer
+ * ---------------------------*/
+.site-footer {
+	background-color: #333;
+	color: white;
+	overflow: hidden;
+	padding: 40px;
+}
+
+@media (min-width: 800px) {
+	.site-footer {
+		clear: both;
+	}
+	.site-footer .column {
+		width: 32%;
+		float: left;
+		padding-right: 2%;
+		margin-bottom: 2%;
+	}
+	.site-footer .column.last {
+		padding-right: 0;
+	}
+}
+
+.contacticon
+{
+	width: 40px;
+	height: 40px;
+}
+
+.site-footer a:link{color: lightgray;}
+.site-footer a:visited{color: lightgray;}
+.site-footer a:hover{color: lightgray;}
+.site-footer a:active{color: lightgray;}
+
+.sidebarimg {border-radius: 5px;}
+
+/* Float container */
+#p-float {
+	//	max-width: 1200px;
+	max-width: 900px;
+	margin: 0 auto;
+	/* Clearfix */
+	overflow: auto;
+}
+#p-float::after {
+	/* Clearfix */
+	content: "";
+	clear: both;
+	display: table;
+}
+/* Product items */
+div.p-float {
+	float: left;
+	width: 25%;
+}
+div.p-float-in {
+	box-sizing: border-box;
+	margin: 5px;
+	padding: 10px;
+	border: 1px solid #f2dcdc;
+	background: #fff7f7;
+}
+img.p-img {
+	width: 100%;
+	height: auto;
+}
+div.p-name {
+	font-weight: bold;
+	font-size: 1.1em;
+}
+div.p-price {
+	//color: #f44242;
+	color: green;
+}
+div.p-desc {
+	color: #888;
+	font-size: 0.9em;
+}
+div.p-type {
+	color: #888;
+	font-size: 0.9em;
+}
+div.p-language {
+	color: #888;
+	font-size: 0.9em;
+}
+div.p-publisher {
+	color: #888;
+	font-size: 0.9em;
+}
+div.p-pages {
+	color: #888;
+	font-size: 0.9em;
+}
+div.p-author {
+	color: #888;
+	font-size: 0.9em;
+}
+span.bolddesc {
+	font-weight:bold;
+}
+span.oldprice {
+	text-decoration: line-through;
+	color: #f44242;
+}
+
+button.p-add {
+	background: #f46b41;
+	color: #fff;
+	border: none;
+	width: 100%;
+	padding: 10px;
+	margin: 10px 5px 5px 5px;
+	font-size: 1.1em;
+	font-weight: bold;
+	cursor: pointer;
+}
+/* Responsive */
+@media only screen and (max-width: 1024px) {
+	div.p-float { width: 33%; }
+}
+@media only screen and (max-width: 600px) {
+	div.p-float { width: 50%; }
+}
+/* [DOES NOT MATTER] */
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: arial, sans-serif;
+}
+.site-content {width: 100%; margin-left: auto; margin-right: auto;}
+@media screen and (max-width: 900px) {
+	.peek {
+		display: none !important;
+	}
+	.leftdance {
+		display: none !important;
+	}
+}
+
+hr {border-top: 1px solid lightpink;}
+.viewingitemimage {
+	width: 10;
+	height: auto;
+}
+
+.form-style-3{
+	max-width: 450px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	margin: 0 auto;
+	width: 50%;
+	color: #F072A9;
+	font-size: 10px;
+}
+.centrebutton
+{
+}
+.form-style-3 label{
+	display:block;
+	margin-bottom: 10px;
+}
+.form-style-3 label > span{
+	float: left;
+	width: 100px;
+	color: #F072A9;
+	font-weight: bold;
+	font-size: 13px;
+	text-shadow: 1px 1px 1px #fff;
+}
+.form-style-3 fieldset{
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	margin: 0px 0px 10px 0px;
+	border: 1px solid #FFD2D2;
+	padding: 20px;
+	background: #FFF4F4;
+	box-shadow: inset 0px 0px 15px #FFE5E5;
+	-moz-box-shadow: inset 0px 0px 15px #FFE5E5;
+	-webkit-box-shadow: inset 0px 0px 15px #FFE5E5;
+}
+.form-style-3 fieldset legend{
+	color: #FFA0C9;
+	border-top: 1px solid #FFD2D2;
+	border-left: 1px solid #FFD2D2;
+	border-right: 1px solid #FFD2D2;
+	border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	background: #FFF4F4;
+	padding: 0px 8px 3px 8px;
+	box-shadow: -0px -1px 2px #F1F1F1;
+	-moz-box-shadow:-0px -1px 2px #F1F1F1;
+	-webkit-box-shadow:-0px -1px 2px #F1F1F1;
+	font-weight: normal;
+	font-size: 12px;
+}
+.form-style-3 textarea{
+	width:250px;
+	height:100px;
+}
+.form-style-3 input[type=text],
+.form-style-3 input[type=date],
+.form-style-3 input[type=datetime],
+.form-style-3 input[type=number],
+.form-style-3 input[type=search],
+.form-style-3 input[type=time],
+.form-style-3 input[type=url],
+.form-style-3 input[type=email],
+.form-style-3 input[type=password],
+.form-style-3 select, 
+.form-style-3 textarea{
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid #FFC2DC;
+	outline: none;
+	color: #F072A9;
+	padding: 5px 8px 5px 8px;
+	box-shadow: inset 1px 1px 4px #FFD5E7;
+	-moz-box-shadow: inset 1px 1px 4px #FFD5E7;
+	-webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
+	background: #FFEFF6;
+	width:50%;
+}
+.form-style-3  input[type=submit],
+.form-style-3  input[type=button]{
+	background: #EB3B88;
+	border: 1px solid #C94A81;
+	padding: 5px 15px 5px 15px;
+	color: #FFCBE2;
+	box-shadow: inset -1px -1px 3px #FF62A7;
+	-moz-box-shadow: inset -1px -1px 3px #FF62A7;
+	-webkit-box-shadow: inset -1px -1px 3px #FF62A7;
+	border-radius: 3px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;	
+	font-weight: bold;
+}
+.required{
+	color:red;
+	font-weight:normal;
+}
+
+/* hack hack hack */
+.refreshicon {position: relative; bottom: 30px; left: 10px; text-decoration: none; font-size: xx-large;}
