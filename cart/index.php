@@ -34,18 +34,31 @@
 	</head>
 	<body translate="no">
 		<div class="site">
-			<?php
-				/* relative paths are not allowed here */
-				include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/header.php");
-			?>
+<?php
+/* relative paths are not allowed here */
+include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/header.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/createuserclass.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/cartclass.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/cartview.php");
+?>
 			<div class="content-wrapper">
 				<div class="site-content">
-					<img src="/images/construction.png" alt="construction ahead">
+					<div class="form-style-3">
+						<div>
+							<fieldset id="viewitem"><legend>Shopping Cart</legend>
+								<div id="personalerrormsg">
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/viewerrorflags.php"); ?>
+								</div>
+								<?php showcart(); ?>
+							</fieldset>
+						</div>
+					</div>
+
 				</div>
-				<?php
-				/* relative paths are not allowed here */
-				include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php");
-				?>
+<?php
+/* relative paths are not allowed here */
+include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php");
+?>
 			</div>
 	</body>
 </html>

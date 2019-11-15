@@ -37,9 +37,12 @@
 			<?php
 				/* relative paths are not allowed here */
 				include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/header.php");
+				include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/itemview.php");
 			?>
 			<div class="content-wrapper">
 				<div class="site-content">
+					<?php showbooks();?>
+				<!--
 					<div id="p-float">
 						<div class="p-float"><div class="p-float-in">
 							<img class="p-img" alt="Bloom Into You Volume 1" src="/images/manga/bloom_into_you_1.jpg"/>
@@ -57,13 +60,13 @@
 						<div class="p-float-in">
 							<img class="p-img" src="/images/manga/bloom_into_you_2.jpg"/>
 							<div class="p-name">Bloom Into You Volume 2</div>
-							<div class="p-price">$88.88</div>
+							<div class="p-price"><span class="oldprice">$99.99</span> $79.99 20% off!</div>
 							<div class="p-author"><span class="bolddesc">Author: </span>Nakatani Nio</div>
 							<div class="p-type"><span class="bolddesc">Type: </span>Paperback</div>
 							<div class="p-pages"><span class="bolddesc">Pages: </span>180</div>
 							<div class="p-language"><span class="bolddesc">Language: </span>English</div>
 							<div class="p-publisher"><span class="bolddesc">Publisher: </span>Seven Seas Entertainment</div>
-							<button class="p-add">Add to Cart</button>
+							<a href="/view"><button class="p-add">View Item</button></a>
 						</div>
 					</div>
 					<div class="p-float">
@@ -118,6 +121,7 @@
 							<button class="p-add">Add to Cart</button>
 						</div>
 					</div>
+				-->
 
 
 					</div>

@@ -18,22 +18,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/includes/constants.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/userclass.php");
 
-function showerrors($flag)
+if (!isset($_SESSION['userObject']))
 {
-	$errorstr = "";
-	if ($flag & UNKNOWNUSER) $errorstr .= "Email is unknown.<br>";
-	if ($flag & BADPASSWORD) $errorstr .= "Password is invalid.<br>";
-	if ($flag & DBERROR) $errorstr .= "Database error. Please try again later.<br>";
-	if ($flag & LOGINNOW) $errorstr .= "Your account has been created, please login.<br>";
-	if ($flag & CHECKOUTLOGIN) $errorstr .= "To continue to checkout, you must login.<br>";
-	echo $errorstr . "<hr>";
+	$user = new User(-1, NULL);
+	$_SESSION['userObject'] = serialize($user);
 }
 
-if (isset($_GET['error']))
-{
-	$flag =  $_GET["error"];
-	showerrors($flag);
-}
 ?>
+

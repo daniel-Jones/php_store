@@ -18,22 +18,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/includes/constants.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/dbconnection.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commonfunctions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/cartview.php';
 
-function showerrors($flag)
+function drawsummary()
 {
-	$errorstr = "";
-	if ($flag & UNKNOWNUSER) $errorstr .= "Email is unknown.<br>";
-	if ($flag & BADPASSWORD) $errorstr .= "Password is invalid.<br>";
-	if ($flag & DBERROR) $errorstr .= "Database error. Please try again later.<br>";
-	if ($flag & LOGINNOW) $errorstr .= "Your account has been created, please login.<br>";
-	if ($flag & CHECKOUTLOGIN) $errorstr .= "To continue to checkout, you must login.<br>";
-	echo $errorstr . "<hr>";
+	showcheckoutcart();
 }
 
-if (isset($_GET['error']))
-{
-	$flag =  $_GET["error"];
-	showerrors($flag);
-}
 ?>

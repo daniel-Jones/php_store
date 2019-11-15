@@ -18,22 +18,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/includes/constants.php");
+session_start();
+include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/userclass.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/cartclass.php");
 
-function showerrors($flag)
+if (!isset($_GET['isbn']))
 {
-	$errorstr = "";
-	if ($flag & UNKNOWNUSER) $errorstr .= "Email is unknown.<br>";
-	if ($flag & BADPASSWORD) $errorstr .= "Password is invalid.<br>";
-	if ($flag & DBERROR) $errorstr .= "Database error. Please try again later.<br>";
-	if ($flag & LOGINNOW) $errorstr .= "Your account has been created, please login.<br>";
-	if ($flag & CHECKOUTLOGIN) $errorstr .= "To continue to checkout, you must login.<br>";
-	echo $errorstr . "<hr>";
+	header("Location: /");
+	exit;
 }
 
-if (isset($_GET['error']))
+$user = unserialize($_SESSION['userObject']);
+if (isset($_GET['isbn']))
 {
-	$flag =  $_GET["error"];
-	showerrors($flag);
+	$user->getCart()->removeBook($_GET['isbn']);
+
 }
+
+$_SESSION['userObject'] = serialize($user);
+if (isset($_GET['goto']))
+{
+	if (strcmp($_GET['goto'], "checkout") == 0)
+	{
+		header("Location: /checkout/");
+		exit;
+	}
+}
+header("Location: /cart/");
 ?>

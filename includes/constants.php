@@ -38,4 +38,13 @@ define("LOGINNOW", 1<<11);
 define("BADACTIVATIONCODE", 1<<12);
 define("NEWCODENOTALLOWED", 1<<13);
 define("CODECHANGED", 1<<14);
+define("UNKNOWNITEM", 1<<15);
+define("CHECKOUTLOGIN", 1<<16);
+define("BADADDRESS", 1<<17);
+define("BADTOWN", 1<<18);
+define("BADPOSTCODE", 1<<19);
+define("BADCARDNUMBER", 1<<20);
+define("BADCARDNAME", 1<<21);
+define("BADCVV", 1<<22);
+define("ORDERCOMPLETE", 1<<23);
 ?>

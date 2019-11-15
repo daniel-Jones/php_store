@@ -22,6 +22,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/dbconnection.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/activationcode.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/constants.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/cartclass.php';
 
 class User
 {
@@ -35,17 +36,24 @@ class User
 	private $email;
 	private $activationcode;
 	private $isactivated;
+	private $cart;
 
 	/* constructor */
 	public function __construct($userid, $email)
 	{
 		$this->userid = $userid;
 		$this->email = $email;
+		$this->cart = new Cart();
 	}
 
 	public function __destruct()
 	{
 
+	}
+
+	public function getCart()
+	{
+		return $this->cart;
 	}
 
 	public function getUserId()

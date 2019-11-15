@@ -23,11 +23,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/includes/constants.php");
 function showerrors($flag)
 {
 	$errorstr = "";
-	if ($flag & UNKNOWNUSER) $errorstr .= "Email is unknown.<br>";
-	if ($flag & BADPASSWORD) $errorstr .= "Password is invalid.<br>";
-	if ($flag & DBERROR) $errorstr .= "Database error. Please try again later.<br>";
-	if ($flag & LOGINNOW) $errorstr .= "Your account has been created, please login.<br>";
-	if ($flag & CHECKOUTLOGIN) $errorstr .= "To continue to checkout, you must login.<br>";
+	if ($flag & DBERROR) $errorstr .= "Database error.<br>";
+	if ($flag & BADFIRSTNAME) $errorstr .= "The name field cannot be empty.<br>";
+	if ($flag & BADADDRESS) $errorstr .= "The address field cannot be empty.<br>";
+	if ($flag & BADTOWN) $errorstr .= "The town/city field cannot be empty.<br>";
+	if ($flag & BADPOSTCODE) $errorstr .= "The postcode is invalid.<br>";
+	if ($flag & BADCARDNUMBER) $errorstr .= "The card number is invalid. It must be 16 or more characters.<br>";
+	if ($flag & BADCARDNAME) $errorstr .= "The card name field cannot be empty.<br>";
+	if ($flag & BADCVV) $errorstr .= "The card CVV is invalid. It must be 3 digits.<br>";
 	echo $errorstr . "<hr>";
 }
 

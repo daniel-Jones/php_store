@@ -23,11 +23,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/includes/constants.php");
 function showerrors($flag)
 {
 	$errorstr = "";
-	if ($flag & UNKNOWNUSER) $errorstr .= "Email is unknown.<br>";
-	if ($flag & BADPASSWORD) $errorstr .= "Password is invalid.<br>";
-	if ($flag & DBERROR) $errorstr .= "Database error. Please try again later.<br>";
-	if ($flag & LOGINNOW) $errorstr .= "Your account has been created, please login.<br>";
-	if ($flag & CHECKOUTLOGIN) $errorstr .= "To continue to checkout, you must login.<br>";
+	if ($flag & CHECKOUTCOMPLETE) $errorstr .= "Your order was successful! Thank you for your money ...<br>";
 	echo $errorstr . "<hr>";
 }
 

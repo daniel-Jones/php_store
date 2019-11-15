@@ -74,6 +74,9 @@ p:last-child {
 
 /* =Navigation
  * ---------------------------*/
+.site-navigation
+{
+}
 .site-navigation ul {
 	list-style-type: none;
 	margin: 0;
@@ -195,6 +198,7 @@ p:last-child {
 div.p-float {
 	float: left;
 	width: 25%;
+	font-size: 10pt;
 }
 div.p-float-in {
 	box-sizing: border-box;
@@ -202,9 +206,13 @@ div.p-float-in {
 	padding: 10px;
 	border: 1px solid #f2dcdc;
 	background: #fff7f7;
+	min-height: 460px;
+	//cursor: pointer;
 }
 img.p-img {
 	width: 100%;
+	max-width: 1500px;
+	max-height: auto;
 	height: auto;
 }
 div.p-name {
@@ -239,6 +247,11 @@ div.p-author {
 	color: #888;
 	font-size: 0.9em;
 }
+div.p-date {
+	color: #888;
+	font-size: 0.9em;
+}
+
 span.bolddesc {
 	font-weight:bold;
 }
@@ -253,7 +266,7 @@ button.p-add {
 	border: none;
 	width: 100%;
 	padding: 10px;
-	margin: 10px 5px 5px 5px;
+	//margin: 10px 5px 5px 5px;
 	font-size: 1.1em;
 	font-weight: bold;
 	cursor: pointer;
@@ -388,3 +401,89 @@ hr {border-top: 1px solid lightpink;}
 
 /* hack hack hack */
 .refreshicon {position: relative; bottom: 30px; left: 10px; text-decoration: none; font-size: xx-large;}
+
+img.viewimage
+{
+	max-width: 200px;
+	max-height: auto;
+}
+.mangadesc
+{
+	color: black;
+	font-size: 9pt;
+}
+
+@media screen and (min-width: 740px)
+{
+	img.viewimage
+	{
+		float: left;
+		margin-right: 10px;
+	}
+}
+
+#cartimage
+{
+	max-width: 100px;
+	max-height: auto;
+	float: left;
+}
+#carttext
+{
+	padding-left: 5%;
+	float: left;
+	color: black;
+	font-size: 9pt;
+} 
+
+
+
+
+
+.InputAddOn {
+	display: flex;
+	  justify-content: center;
+}
+
+.InputAddOn-field {
+	flex: 1;
+	/* field styles */
+}
+
+.InputAddOn-item {
+	/* item styles */
+}
+
+
+.InputAddOn {
+	display: flex;
+	margin-bottom: 1.5em;
+}
+
+.InputAddOn-field {
+	flex: 1;
+}
+.InputAddOn-field:not(:first-child) {
+	border-left: 0;
+}
+.InputAddOn-field:not(:last-child) {
+	border-right: 0;
+}
+
+.InputAddOn-item {
+	background-color: rgba(147, 128, 108, 0.1);
+	color: #666666;
+	font: inherit;
+	font-weight: normal;
+}
+
+.InputAddOn-field,
+.InputAddOn-item {
+	border: 1px solid rgba(147, 128, 108, 0.25);
+	padding: 0.5em 0.75em;
+	max-width: 150px;
+}
+.InputAddOn-field:first-child,
+.InputAddOn-item:first-child {
+	border-radius: 2px 0 0 2px;
+}

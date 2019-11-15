@@ -24,6 +24,36 @@ if (!function_exists("password_verify"))
 	require_once "/usr/share/php/password_compat/password.php";
 }
 
+function substrwords($text, $maxchar, $end='...')
+{
+	/* https://www.hashbangcode.com/article/cut-string-specified-length-php */
+	if (strlen($text) > $maxchar || $text == '')
+	{
+		$words = preg_split('/\s/', $text);      
+		$output = '';
+		$i      = 0;
+		while (1)
+		{
+			$length = strlen($output)+strlen($words[$i]);
+			if ($length > $maxchar)
+			{
+				break;
+			} 
+			else
+			{
+				$output .= " " . $words[$i];
+				++$i;
+			}
+		}
+		$output .= $end;
+	} 
+	else
+	{
+		$output = $text;
+	}
+	return $output;
+}
+
 function checkemailexists($connection, $email)
 {
 	/*
@@ -67,7 +97,7 @@ function comparehash($connection, $password, $email)
 {
 	/*
 	 * compare the supplied password with the hash in the database for user $email
-	*/
+	 */
 	$return = false;
 	$statement = $connection->prepare("SELECT * FROM user WHERE email = ? LIMIT 1");
 	if (!$statement)

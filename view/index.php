@@ -22,7 +22,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Login</title>
+		<title>View Item</title>
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 		<meta name="keywords" content="manga, yuri, doujin, doujinshi, lewd">
 		<meta name="description" content="Buy some Manga, but not really..">
@@ -38,38 +38,43 @@
 <?php
 /* relative paths are not allowed here */
 include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/header.php");
-include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/userclass.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/itemview.php");
 $form_data = [];
 
-if (isset($_SESSION['userObject']))
-{
-	/* check if the user is logged in and redirect them away */
-	$user = unserialize($_SESSION['userObject']);
-	if ($user->loggedIn())
+	/* create database connection inline for ease */
+	static $connection;
+	$connection = dbconnect();
+	if ($connection == NULL)
 	{
-		echo "Thinks logged in";
-		header('Location: /');
+		/*
+		 * some database error
+		 * can't really use the error display feature without looping...
+		 * for ease just die for now
+		 */
+		die("Fatal internal database error");
 		exit;
 	}
-}
 
-if (isset($_SESSION['inputform']) && !empty($_SESSION['inputform']))
-{
-	$form_data = $_SESSION['inputform'];
-	unset($_SESSION['inputform']);
-}
 ?>
 			<div class="content-wrapper">
 				<div class="site-content">
 					<div class="form-style-3">
-						<form id="inputform" action="/includes/dologin.php" method="POST">
-							<fieldset id="personaldeets"><legend>Login</legend>
+						<form id="inputform" action="/includes/addtocart.php" method="POST">
+							<fieldset id="viewitem"><legend id="viewitemlegend">View Item</legend>
 								<div id="personalerrormsg">
-<?php include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/loginerrorflags.php"); ?>
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/viewerrorflags.php"); ?>
 								</div>
-								<label><span>Email <span class="required">*</span></span><input id="email" type="text" class="input-field" name="email" value="<?php if (isset($form_data['email'])) echo $form_data['email']?>" /></label>
-								<label><span>Password <span class="required">*</span></span><input id="phone" type="password" class="input-field" name="password" value="<?php if (isset($form_data['password'])) echo $form_data['password']?>" /></label>
-								<label><input class="centrebutton" type="submit" form="inputform" action="/includes/doregister.php" value="♡ Login ♡" />&nbsp; No account? <a href="/register">register here!</a></label>
+<?php
+	if (isset($_GET["manga"]))
+	{
+		showbook($connection, $_GET["manga"]);
+	}
+	else
+	{
+		header("Location: /");
+		exit;
+	}
+?>
 							</fieldset>
 						</form>
 					</div>
@@ -78,7 +83,9 @@ if (isset($_SESSION['inputform']) && !empty($_SESSION['inputform']))
 <?php
 /* relative paths are not allowed here */
 include_once($_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php");
+dbdisconnect($connection);
 ?>
 		</div>
+
 	</body>
 </html>

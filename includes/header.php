@@ -54,11 +54,18 @@ function printHeader()
 
 ?>
 <div class="site-header">
-				<h1 class="site-title"><a href="/"><img src="/images/lewd.png" alt="Not lewd manga" style=""></a></h1>
+				<a href="/"><img class="site-title" src="/images/lewd.png" alt="Not lewd manga" style=""></a>
 				<div class="site-navigation">
 					<ul>
-					<li><a href="/">Home</a></li> <li><a href="/cart/">Cart</a> <li><?php printHeader(); ?></li></li>
-		&nbsp;&nbsp; <li><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for manga.." title="Type in a name"></li>
+					<li><a href="/">Home</a></li> <li><a href="/cart/">Cart</a> <li><?php printHeader(); ?></li>
+		<!--&nbsp;&nbsp; <li>
+<form action="/search/" method="GET">
+<div class="InputAddOn">
+  <input id="term" name="term" class="InputAddOn-field" placeholder="manga name">
+  <button class="InputAddOn-item">search</button>
+</div>
+</form>
+</li> -->
 					</ul>
 				</div>
 			</div>
